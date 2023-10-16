@@ -8,3 +8,18 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+CREATE TABLE "select_program" (
+    "id" SERIAL PRIMARY KEY,
+    "3day" BOOLEAN,
+    "4day" BOOLEAN,
+    "5day" BOOLEAN,
+    "user_id" VARCHAR (80)
+
+);
+
+CREATE TABLE "submission" (
+    "id" SERIAL PRIMARY KEY,
+    "comments" VARCHAR (1000),
+);
+
