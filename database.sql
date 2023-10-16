@@ -15,7 +15,6 @@ CREATE TABLE "select_program" (
     "4day" BOOLEAN,
     "5day" BOOLEAN,
     "user_id" VARCHAR (80)
-
 );
 
 CREATE TABLE "submission" (
