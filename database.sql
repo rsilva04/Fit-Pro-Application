@@ -9,7 +9,7 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE "select_program" (
+CREATE TABLE "programs" (
     "id" SERIAL PRIMARY KEY,
     "3day" BOOLEAN,
     "4day" BOOLEAN,
@@ -17,7 +17,7 @@ CREATE TABLE "select_program" (
     "user_id" VARCHAR (80)
 );
 
-CREATE TABLE "submission" (
+CREATE TABLE "comments" (
     "id" SERIAL PRIMARY KEY,
     "comments" VARCHAR (1000),
 );
