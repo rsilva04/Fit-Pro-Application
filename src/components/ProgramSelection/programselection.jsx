@@ -10,7 +10,7 @@ function ProgramSelection() {
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
-      <button>3-Day Program</button>
+        <button type= "button" className=''>3-Day Program</button>
         <button>4-Day Program</button>
         <button>5-Day Program</button>
     </div>
