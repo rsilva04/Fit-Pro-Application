@@ -1,21 +1,55 @@
 import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import './ProgramSelection.css';
 
 function ProgramSelection() {
+
+
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   return (
+    
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <LogOutButton className="btn" />
-        <button type= "button" className=''>3-Day Program</button>
-        <button>4-Day Program</button>
-        <button>5-Day Program</button>
-    </div>
+      <h1>Welcome, {user.username}!</h1>
+      <center>
+      <h1>Select Your Program</h1>
+      </center>
+      
+      <center>
+        <button
+          type="button"
+          className="threeday"
+          onClick={() => {
+            history.push('/registration');
+          }}
+        >
+          3-Day Program
+        </button>
+        </center>
+        <center>
+        <button
+          type="button"
+          className="fourday"
+          onClick={() => {
+            history.push('/registration');
+          }}
+        >
+          4-Day Program
+          </button>
+          </center>
+          <center>
+        <button
+          type="button"
+          className="fiveday"
+          onClick={() => {
+            history.push('/registration');
+          }}
+        >
+          5-Day Program
+        </button>
+        </center>  
+          </div>
   );
 }
-
 // this allows us to use <App /> in index.js
 export default ProgramSelection;
