@@ -5,18 +5,13 @@ import { useSelector } from 'react-redux';
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
-function ThreeDayProgram(props) {
+function FiveDayProgram(props) {
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
 
     const store = useSelector((store) => store);
-    const [heading, setHeading] = useState('3-Day Program');
-    const [isClicked, setIsClicked] = useState(false);
+    const [heading, setHeading] = useState('5-Day Program');
 
-  // Function to handle the button click
-  const handleButtonClick = () => {
-    setIsClicked(true);
-  };
    
 
     return (
@@ -27,13 +22,13 @@ function ThreeDayProgram(props) {
             <button
                 type="button"
                 className="threeday"
-                onClick={handleButtonClick}
+                onClick={() => {
+                    history.push('/');
+                }}
             >
                 Day-1
             </button>
 
-            <br></br>
-            <br></br>
             <br></br>
 
             <button
@@ -47,8 +42,6 @@ function ThreeDayProgram(props) {
             </button>
 
             <br></br>
-            <br></br>
-            <br></br>
 
             <button
                 type="button"
@@ -60,8 +53,30 @@ function ThreeDayProgram(props) {
                 Day-3
             </button>
 
+            <br></br>
+
+            <button
+                type="button"
+                className="fiveday"
+                onClick={() => {
+                    history.push('/registration');
+                }}
+            >
+                Day-4
+            </button>
+            <br></br>
+
+            <button
+                type="button"
+                className="fiveday"
+                onClick={() => {
+                    history.push('/registration');
+                }}
+            >
+                Day-5
+            </button>
         </div>
     );
 }
 
-export default ThreeDayProgram;
+export default FiveDayProgram;

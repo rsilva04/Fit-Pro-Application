@@ -23,6 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
 import ThreeDayProgram from '../ThreeDayProgram/ThreeDayProgram';
 import FourDayProgram from '../FourDayProgram/FourDayProgram';
+import FiveDayProgram from '../FiveDayProgram/FiveDayProgram';
 
 function App() {
   const dispatch = useDispatch();
@@ -85,6 +86,15 @@ function App() {
           >
             <FourDayProgram />
           </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/fivedayprogram"
+          >
+            <FiveDayProgram />
+          </ProtectedRoute>
+
 
           <Route
             exact
