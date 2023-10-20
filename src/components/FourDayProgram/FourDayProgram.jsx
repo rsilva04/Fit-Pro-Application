@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux';
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
-function ThreeDayProgram(props) {
+function FourDayProgram(props) {
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
 
     const store = useSelector((store) => store);
-    const [heading, setHeading] = useState('3-Day Program');
+    const [heading, setHeading] = useState('4-Day Program');
 
    
 
@@ -57,8 +57,22 @@ function ThreeDayProgram(props) {
                 Day-3
             </button>
 
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <button
+                type="button"
+                className="fiveday"
+                onClick={() => {
+                    history.push('/registration');
+                }}
+            >
+                Day-4
+            </button>
+
         </div>
     );
 }
 
-export default ThreeDayProgram;
+export default FourDayProgram;

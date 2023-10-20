@@ -1,12 +1,28 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './ProgramSelection.css';
 
 function ProgramSelection() {
 
+  const threeDayProgram = () => {
+    // Use the history object to navigate to another page
+    history.push('/threedayprogram');
+  };
+
+  const fourDayProgram = () => {
+    // Use the history object to navigate to another page
+    history.push('/fourdayprogram');
+  };
+
+  const fiveDayProgram = () => {
+    // Use the history object to navigate to another page
+    history.push('/fivedayprogram');
+  };
 
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+  const history = useHistory(); // Initializes the useHistory hook
   return (
     
     <div className="container">
@@ -19,9 +35,7 @@ function ProgramSelection() {
         <button
           type="button"
           className="threeday"
-          onClick={() => {
-            history.push('/registration');
-          }}
+          onClick={threeDayProgram}
         >
           3-Day Program
         </button>
@@ -30,9 +44,7 @@ function ProgramSelection() {
         <button
           type="button"
           className="fourday"
-          onClick={() => {
-            history.push('/registration');
-          }}
+          onClick={fourDayProgram}
         >
           4-Day Program
           </button>
@@ -41,9 +53,7 @@ function ProgramSelection() {
         <button
           type="button"
           className="fiveday"
-          onClick={() => {
-            history.push('/registration');
-          }}
+          onClick={fiveDayProgram}
         >
           5-Day Program
         </button>

@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 import ThreeDayProgram from '../ThreeDayProgram/ThreeDayProgram';
+import FourDayProgram from '../FourDayProgram/FourDayProgram';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +78,14 @@ function App() {
             <ThreeDayProgram />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/fourdayprogram"
+          >
+            <FourDayProgram />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
@@ -118,6 +127,7 @@ function App() {
               <LandingPage />
             }
           </Route>
+          
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
