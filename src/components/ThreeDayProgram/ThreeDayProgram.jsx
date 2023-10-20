@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import './ThreeDayProgram.css';
+
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -13,11 +15,11 @@ function ThreeDayProgram(props) {
     const [heading, setHeading] = useState('3-Day Program');
     const [isClicked, setIsClicked] = useState(false);
 
-  // Function to handle the button click
-  const handleButtonClick = () => {
-    setIsClicked(true);
-  };
-   
+    // Function to handle the button click
+    const handleButtonClick = () => {
+        setIsClicked(true);
+    };
+
 
     return (
         <div className="container">
@@ -27,10 +29,15 @@ function ThreeDayProgram(props) {
             <button
                 type="button"
                 className="threeday"
-                onClick={handleButtonClick}
-            >
+                onClick={handleButtonClick}>
                 Day-1
             </button>
+            {isClicked && (
+                <ul className="list">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>)}
 
             <br></br>
             <br></br>
@@ -39,10 +46,7 @@ function ThreeDayProgram(props) {
             <button
                 type="button"
                 className="fourday"
-                onClick={() => {
-                    history.push('/registration');
-                }}
-            >
+                onClick={handleButtonClick}>
                 Day-2
             </button>
 
@@ -53,10 +57,7 @@ function ThreeDayProgram(props) {
             <button
                 type="button"
                 className="fiveday"
-                onClick={() => {
-                    history.push('/registration');
-                }}
-            >
+                onClick={handleButtonClick}>
                 Day-3
             </button>
 

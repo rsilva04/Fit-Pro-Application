@@ -1,0 +1,5 @@
+.list {
+    flex-grow: 10;
+    color: green;
+    object-position: right;
+  }
