@@ -14,13 +14,16 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import ProgramSelection from '../ProgramSelection/ProgramSelection'
+import ProgramSelection from '../ProgramSelection/ProgramSelection';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import ThreeDayProgram from '../ThreeDayProgram/ThreeDayProgram';
+import FourDayProgram from '../FourDayProgram/FourDayProgram';
+import FiveDayProgram from '../FiveDayProgram/FiveDayProgram';
 
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +71,31 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/threedayprogram"
+          >
+            <ThreeDayProgram />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/fourdayprogram"
+          >
+            <FourDayProgram />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/fivedayprogram"
+          >
+            <FiveDayProgram />
+          </ProtectedRoute>
+
+
           <Route
             exact
             path="/login"
@@ -109,6 +137,7 @@ function App() {
               <LandingPage />
             }
           </Route>
+          
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
