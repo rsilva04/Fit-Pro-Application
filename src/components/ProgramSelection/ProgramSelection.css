@@ -1,4 +1,4 @@
-.threeday {
+.threeday-button {
     background: linear-gradient(to bottom, rgb(15, 60, 116), lightblue); 
     color: white;
     border: none; 
@@ -14,12 +14,12 @@
     transition: background 0.3s ease-in-out;
   }
   
-  .threeday:hover {
+  .threeday-button :hover {
     background: linear-gradient(to bottom, lightblue, rgb(15, 60, 116)); 
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
   }
   
-  .fourday {
+  .fourday-button {
     background: linear-gradient(to bottom, rgb(15, 60, 116), lightblue); 
     color: white;
     border: none; 
@@ -41,23 +41,7 @@
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
   }
   
-  .fiveday {
-    background: linear-gradient(to bottom, rgb(15, 60, 116), lightblue); 
-    color: white;
-    border: none; 
-    padding: 35px 200px; 
-    margin-top: 10px; 
-    text-align: center; 
-    display: inline-block; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  
-   
-    transition: background 0.3s ease-in-out;
-  }
-  
+
   .fiveday:hover {
     background: linear-gradient(to bottom, lightblue, rgb(15, 60, 116)); 
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); 
