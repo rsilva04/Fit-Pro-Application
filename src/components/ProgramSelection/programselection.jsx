@@ -91,7 +91,7 @@ export default function ProgramSelection() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button onClick = {threeDayProgram} size="small">View</Button>
+                    <Button onClick = {threeDayProgram} size="small">Start</Button>
                     <Button size="small">Edit</Button>
                   </CardActions>
                 </Card>
