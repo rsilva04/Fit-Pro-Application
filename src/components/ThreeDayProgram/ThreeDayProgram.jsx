@@ -1,100 +1,77 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import './ThreeDayProgram.css';
 
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
-function ThreeDayProgram(props) {
+function ThreeDayProgram() {
     // Using hooks we're creating local state for a "heading" variable with
     // a default value of 'Functional Component'
-
-    const store = useSelector((store) => store);
-    const [heading, setHeading] = useState('3-Day Program');
-    const [isClicked, setIsClicked] = useState(false);
-    const [day2Clicked, setDay2Clicked] = useState(false);
-    const [day3Clicked, setDay3Clicked] = useState(false);
-
-    // Function to handle the button click
-    const handleButtonClick = () => {
-        setIsClicked(true);
-    };
-    const handleButtonClickDay2 = () => {
-        setDay2Clicked(true);
-        console.log('i am clicked');
-    };
-
-    const handleButtonClickDay3 = () => {
-        setDay3Clicked(true);
-        console.log('i am clicked');
-    };
+  
     
-
-
-    return (
-        <div>
-        <div className='threedayprogramstyle'>
-        <div className="threedaycontainer">
-            <div className="head">
-                <h2>{heading}</h2>
-            </div>
-            <button
-                type="button"
-                className="fiveday-button"
-                onClick={handleButtonClick}>
-                Push
-            </button>
-            {isClicked && (
-                    <div className="list">
-                        <ul>
-                            <li>Item 1</li>
-                            <li>Item 2</li>
-                            <li>Item 3</li>
-                        </ul>
-                    </div>)}
-
-            <br></br>
-            <br></br>
-            <br></br>
-
-            <button
-                type="button"
-                className="fiveday-button"
-                onClick={handleButtonClickDay2}>
-                Pull
-            </button>
-            {day2Clicked && (
-                    <div className="list">
-                        <ul>
-                            <li>Item 4</li>
-                            <li>Item 5</li>
-                            <li>Item 6</li>
-                        </ul>
-                    </div>)}
-            <br></br>
-            <br></br>
-            <br></br>
-
-            <button
-                type="button"
-                className="fiveday-button"
-                onClick={handleButtonClickDay3}>
-                Legs
-            </button>
-            {day3Clicked && (
-                    <div className="list">
-                        <ul>
-                            <li>Item 7</li>
-                            <li>Item 8</li>
-                            <li>Item 9</li>
-                        </ul>
-                    </div>)}
-        </div >
+      const [selectedButton, setSelectedButton] = useState(null);
+      const [isWorkoutStarted, setWorkoutStarted] = useState(false);
+    
+      const buttons = ["Push","Pull", "Legs"];
+    
+      const exercises = [
+        ["Exercise 1", "Exercise 2", "Exercise 3"],
+        ["Exercise 4", "Exercise 5", "Exercise 6"],
+        ["Exercise 7", "Exercise 8", "Exercise 9"],
+      ];
+    
+      const handleButtonClick = (index) => {
+        setSelectedButton(index);
+        setWorkoutStarted(false); // Reset workout state when a new button is clicked
+      };
+    
+      const handleStartWorkout = () => {
+        setWorkoutStarted(true);
+      };
+    
+      return (
+        <div className="exercise-page">
+          <div className="header">
+            3-Day Program
+          </div>
+          <div className="button-container">
+            {buttons.map((button, index) => (
+              <button
+                key={index}
+                className={`exercise-button ${selectedButton === index ? "active" : ""}`}
+                onClick={() => handleButtonClick(index)}
+              >
+                {button}
+              </button>
+            ))}
+          </div>
+          <div className="exercise-list-container">
+            {selectedButton !== null && !isWorkoutStarted && (
+              <div>
+                <ul className="exercise-list">
+                  {exercises[selectedButton].map((exercise, index) => (
+                    <li key={index}>{exercise}</li>
+                  ))}
+                </ul>
+                <button
+                  className="start-button"
+                  onClick={handleStartWorkout}
+                >
+                  Start Workout
+                </button>
+              </div>
+            )}
+            {isWorkoutStarted && (
+              <div className="workout-in-progress">
+                <p>Workout in progress...</p>
+                {/* Add workout progress components here */}
+              </div>
+            )}
+          </div>
         </div>
-        </div>
-    );
-}
-
+      );
+            }
+    
+    
 export default ThreeDayProgram;
