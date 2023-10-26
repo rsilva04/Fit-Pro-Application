@@ -65,7 +65,6 @@ export default function ProgramSelection() {
         </Box>
         <Container sx={{ py: 4 }} maxWidth="md">
           <Grid container spacing={4}>
- feature-buttons
             <Grid item xs={12} sm={6} md={4}>
               <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
@@ -156,35 +155,6 @@ export default function ProgramSelection() {
                 </CardActions>
               </Card>
             </Grid>
-
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                  
-                    <Typography>
-                      This is a media card. You can use this section to describe the
-                      content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button onClick = {threeDayProgram} size="small">Start</Button>
-                    <Button size="small">Edit</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
- main
           </Grid>
         </Container>
       </main>
