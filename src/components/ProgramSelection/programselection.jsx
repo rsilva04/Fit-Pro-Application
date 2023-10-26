@@ -18,7 +18,6 @@ const cards = [1, 2, 3];
 
 const defaultTheme = createTheme();
 
-
 export default function ProgramSelection() {
   const history = useHistory();
 
@@ -27,36 +26,32 @@ export default function ProgramSelection() {
   };
 
   const fourDayProgram = () => {
-    history.push('/threedayprogram');
+    history.push('/fourdayprogram');
   };
 
   const fiveDayProgram = () => {
-    history.push('/threedayprogram');
+    history.push('/fivedayprogram');
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
-     
       <main>
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
+            pt: 5,
+            pb: 4,
           }}
         >
           <Container maxWidth="sm">
             <Typography
               component="h1"
-              variant="h2"
+              variant="h5"
               align="center"
               color="text.primary"
-              gutterBottom
+              fontSize="60px"
             >
-              Select a program 
-            </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Select a program 
+              Programs
             </Typography>
             <Stack
               sx={{ pt: 0 }}
@@ -64,12 +59,104 @@ export default function ProgramSelection() {
               spacing={1}
               justifyContent="center"
             >
+            
             </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 4 }} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
+ feature-buttons
+            <Grid item xs={12} sm={6} md={4}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://www.shutterstock.com/shutterstock/videos/1085786246/thumb/5.jpg?ip=x480"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="text.primary"
+                    fontSize="20px"
+                  >
+                  Discover our 3-Day Push, Pull, Legs Workout Program for a balanced and powerful physique with focused daily workouts.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button onClick={threeDayProgram} size="small" sx={{ margin: '0 auto' }}>
+                    View
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://www.shutterstock.com/shutterstock/videos/1085786246/thumb/5.jpg?ip=x480"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography
+                     component="h1"
+                     variant="h5"
+                     align="center"
+                     color="text.primary"
+                     fontSize="20px"
+                  >
+                  Revamp your fitness with our 4-Day Ultimate Workout Program, targeting upper, lower, full-body, and core strength for a complete transformation.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button onClick={fourDayProgram} size="small" sx={{ margin: '0 auto' }}>
+                    View
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Card
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+              >
+                <CardMedia
+                  component="div"
+                  sx={{
+                    // 16:9
+                    pt: '56.25%',
+                  }}
+                  image="https://www.shutterstock.com/shutterstock/videos/1085786246/thumb/5.jpg?ip=x480"
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="text.primary"
+                    fontSize="20px"
+                    >
+                  Unleash your potential with our 5-Day Muscle Mastery Program, targeting chest, back, arms, shoulders, and legs for comprehensive muscle development.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button onClick={fiveDayProgram} size="small" sx={{ margin: '0 auto' }}>
+                    View
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card
@@ -97,76 +184,10 @@ export default function ProgramSelection() {
                 </Card>
               </Grid>
             ))}
+ main
           </Grid>
         </Container>
       </main>
-     
-      {/* End footer */}
     </ThemeProvider>
   );
 }
-// import React from 'react';
-// import { useSelector } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
-// import './ProgramSelection.css';
-
-// function ProgramSelection() {
-
-//   const threeDayProgram = () => {
-//     // Use the history object to navigate to another page
-//     history.push('/threedayprogram');
-//   };
-
-//   const fourDayProgram = () => {
-//     // Use the history object to navigate to another page
-//     history.push('/fourdayprogram');
-//   };
-
-//   const fiveDayProgram = () => {
-//     // Use the history object to navigate to another page
-//     history.push('/fivedayprogram');
-//   };
-
-//   // this component doesn't do much to start, just renders some user reducer info to the DOM
-//   const user = useSelector((store) => store.user);
-//   const history = useHistory(); // Initializes the useHistory hook
-//   return (
-    
-//     <div className="container">
-//       <h1>Welcome, {user.username}!</h1>
-//       <center>
-//       <h1>Select Your Program</h1>
-//       </center>
-      
-//       <center>
-//         <button
-//           type="button"
-//           className="threeday"
-//           onClick={threeDayProgram}
-//         >
-//           3-Day Program
-//         </button>
-//         </center>
-//         <center>
-//         <button
-//           type="button"
-//           className="fourday"
-//           onClick={fourDayProgram}
-//         >
-//           4-Day Program
-//           </button>
-//           </center>
-//           <center>
-//         <button
-//           type="button"
-//           className="fiveday"
-//           onClick={fiveDayProgram}
-//         >
-//           5-Day Program
-//         </button>
-//         </center>  
-//           </div>
-//   );
-// }
-// // this allows us to use <App /> in index.js
-// export default ProgramSelection;

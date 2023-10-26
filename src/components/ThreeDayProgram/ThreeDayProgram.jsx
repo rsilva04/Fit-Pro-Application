@@ -1,68 +1,74 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 import './ThreeDayProgram.css';
 
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
-function ThreeDayProgram(props) {
-    // Using hooks we're creating local state for a "heading" variable with
-    // a default value of 'Functional Component'
+function ThreeDayProgram() {
 
-    const store = useSelector((store) => store);
-    const [heading, setHeading] = useState('3-Day Program');
-    const [isClicked, setIsClicked] = useState(false);
+    const [selectedButton, setSelectedButton] = useState(null);
+    const [isWorkoutStarted, setWorkoutStarted] = useState(false);
 
-    // Function to handle the button click
-    const handleButtonClick = () => {
-        setIsClicked(true);
+
+    const history = useHistory();
+    const buttons = ["Push", "Pull", "Legs"];
+
+    const exercises = [
+        ["Exercise 1", "Exercise 2", "Exercise 3"],
+        ["Exercise 4", "Exercise 5", "Exercise 6"],
+        ["Exercise 7", "Exercise 8", "Exercise 9"],
+    ];
+
+    const handleButtonClick = (index) => {
+        setSelectedButton(index);
+        setWorkoutStarted(false); // Reset workout state when a new button is clicked
     };
 
+    const handleStartWorkout = () => {
+        setWorkoutStarted(true);
+    };
 
     return (
-        <div className="container">
-
-            <h2>{heading}</h2>
-
-            <button
-                type="button"
-                className="threeday"
-                onClick={handleButtonClick}>
-                Day-1
-            </button>
-            {isClicked && (
-                <ul className="list">
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                    <li>Item 3</li>
-                </ul>)}
-
-            <br></br>
-            <br></br>
-            <br></br>
-
-            <button
-                type="button"
-                className="fourday"
-                onClick={handleButtonClick}>
-                Day-2
-            </button>
-
-            <br></br>
-            <br></br>
-            <br></br>
-
-            <button
-                type="button"
-                className="fiveday"
-                onClick={handleButtonClick}>
-                Day-3
-            </button>
-
+        <div className="exercise-page">
+            <div className="header">
+                3-Day Program
+            </div>
+            <div className="button-container">
+                {buttons.map((button, index) => (
+                    <button
+                        key={index}
+                        className={`exercise-button ${selectedButton === index ? "active" : ""}`}
+                        onClick={() => handleButtonClick(index)}
+                    >
+                        {button}
+                    </button>
+                ))}
+            </div>
+            <div className="exercise-list-container">
+                {selectedButton !== null && !isWorkoutStarted && (
+                    <div>
+                        <ul className="exercise-list">
+                            {exercises[selectedButton].map((exercise, index) => (
+                                <li key={index}>{exercise}</li>
+                            ))}
+                        </ul>
+                        <button
+                            className="start-button"
+                            onClick={handleStartWorkout}
+                        >
+                            Start Workout
+                        </button>
+                    </div>
+                )}
+                {isWorkoutStarted && (
+                    <div className="workout-in-progress">
+                        <p>Workout in progress...</p>
+                        {/* Add workout progress components here */}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
+
 
 export default ThreeDayProgram;
