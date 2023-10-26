@@ -46,9 +46,10 @@ export default function ProgramSelection() {
           <Container maxWidth="sm">
             <Typography
               component="h1"
-              variant="h2"
+              variant="h5"
               align="center"
               color="text.primary"
+              fontSize="60px"
             >
               Programs
             </Typography>
@@ -74,10 +75,16 @@ export default function ProgramSelection() {
                     // 16:9
                     pt: '56.25%',
                   }}
-                  image="https://source.unsplash.com/random?wallpapers"
+                  image="https://www.shutterstock.com/shutterstock/videos/1085786246/thumb/5.jpg?ip=x480"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="text.primary"
+                    fontSize="20px"
+                  >
                   Discover our 3-Day Push, Pull, Legs Workout Program for a balanced and powerful physique with focused daily workouts.
                   </Typography>
                 </CardContent>
@@ -98,10 +105,16 @@ export default function ProgramSelection() {
                     // 16:9
                     pt: '56.25%',
                   }}
-                  image="https://source.unsplash.com/random?wallpapers"
+                  image="https://www.shutterstock.com/shutterstock/videos/1085786246/thumb/5.jpg?ip=x480"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography>
+                  <Typography
+                     component="h1"
+                     variant="h5"
+                     align="center"
+                     color="text.primary"
+                     fontSize="20px"
+                  >
                   Revamp your fitness with our 4-Day Ultimate Workout Program, targeting upper, lower, full-body, and core strength for a complete transformation.
                   </Typography>
                 </CardContent>
@@ -122,10 +135,16 @@ export default function ProgramSelection() {
                     // 16:9
                     pt: '56.25%',
                   }}
-                  image="https://source.unsplash.com/random?wallpapers"
+                  image="https://www.shutterstock.com/shutterstock/videos/1085786246/thumb/5.jpg?ip=x480"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography>
+                  <Typography
+                    component="h1"
+                    variant="h5"
+                    align="center"
+                    color="text.primary"
+                    fontSize="20px"
+                    >
                   Unleash your potential with our 5-Day Muscle Mastery Program, targeting chest, back, arms, shoulders, and legs for comprehensive muscle development.
                   </Typography>
                 </CardContent>
