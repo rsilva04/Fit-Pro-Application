@@ -39,8 +39,8 @@ export default function ProgramSelection() {
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
+            pt: 5,
+            pb: 4,
           }}
         >
           <Container maxWidth="sm">
@@ -49,12 +49,8 @@ export default function ProgramSelection() {
               variant="h2"
               align="center"
               color="text.primary"
-              gutterBottom
             >
               Programs
-            </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Select a program
             </Typography>
             <Stack
               sx={{ pt: 0 }}
@@ -62,6 +58,7 @@ export default function ProgramSelection() {
               spacing={1}
               justifyContent="center"
             >
+            
             </Stack>
           </Container>
         </Box>
@@ -81,14 +78,13 @@ export default function ProgramSelection() {
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography>
-                    This is a media card. You can use this section to describe the content.
+                  Discover our 3-Day Push, Pull, Legs Workout Program for a balanced and powerful physique with focused daily workouts.
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button onClick={threeDayProgram} size="small">
+                  <Button onClick={threeDayProgram} size="small" sx={{ margin: '0 auto' }}>
                     View
                   </Button>
-                  <Button size="small">Edit</Button>
                 </CardActions>
               </Card>
             </Grid>
@@ -106,14 +102,13 @@ export default function ProgramSelection() {
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography>
-                    This is a media card. You can use this section to describe the content.
+                  Revamp your fitness with our 4-Day Ultimate Workout Program, targeting upper, lower, full-body, and core strength for a complete transformation.
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button onClick={fourDayProgram} size="small">
+                  <Button onClick={fourDayProgram} size="small" sx={{ margin: '0 auto' }}>
                     View
                   </Button>
-                  <Button size="small">Edit</Button>
                 </CardActions>
               </Card>
             </Grid>
@@ -131,14 +126,13 @@ export default function ProgramSelection() {
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography>
-                    This is a media card. You can use this section to describe the content.
+                  Unleash your potential with our 5-Day Muscle Mastery Program, targeting chest, back, arms, shoulders, and legs for comprehensive muscle development.
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button onClick={fiveDayProgram} size="large">
+                  <Button onClick={fiveDayProgram} size="small" sx={{ margin: '0 auto' }}>
                     View
                   </Button>
-                  <Button size="small">Edit</Button>
                 </CardActions>
               </Card>
             </Grid>

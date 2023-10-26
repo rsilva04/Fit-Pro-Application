@@ -8,7 +8,7 @@ function FourDayProgram() {
 
 
     const history = useHistory();
-    const buttons = ["Push", "Pull", "Legs", "Core"];
+    const buttons = ["Upper", "Lower", "Full Body", "Core"];
 
     const exercises = [
         ["Exercise 1", "Exercise 2", "Exercise 3"],
