@@ -24,6 +24,7 @@ function FourDayProgram() {
 
     const handleStartWorkout = () => {
         setWorkoutStarted(true);
+        history.push('/workoutform');
     };
 
     return (

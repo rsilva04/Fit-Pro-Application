@@ -24,6 +24,7 @@ import './App.css';
 import ThreeDayProgram from '../ThreeDayProgram/ThreeDayProgram';
 import FourDayProgram from '../FourDayProgram/FourDayProgram';
 import FiveDayProgram from '../FiveDayProgram/FiveDayProgram';
+import WorkoutForm from '../WorkoutForm/WorkoutForm'
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +78,14 @@ function App() {
             path="/threedayprogram"
           >
             <ThreeDayProgram />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/workoutform"
+          >
+            <WorkoutForm />
           </ProtectedRoute>
 
           <ProtectedRoute
