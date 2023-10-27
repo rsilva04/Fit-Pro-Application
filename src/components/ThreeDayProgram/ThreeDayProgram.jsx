@@ -25,6 +25,7 @@ function ThreeDayProgram() {
 
     const handleStartWorkout = () => {
         setWorkoutStarted(true);
+        history.push('/workoutform');
     };
 
     return (
@@ -61,8 +62,8 @@ function ThreeDayProgram() {
                 )}
                 {isWorkoutStarted && (
                     <div className="workout-in-progress">
-                        <p>Workout in progress...</p>
-                        {/* Add workout progress components here */}
+                        <p>{}</p>
+            
                     </div>
                 )}
             </div>
