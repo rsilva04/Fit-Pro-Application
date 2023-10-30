@@ -1,20 +1,50 @@
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import React from 'react';
+import { Container, TextField, Button, Typography } from '@mui/material';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
-function WorkoutForm(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Workout in Progress... ');
 
+function WorkoutForm() {
   return (
-    <div>
-      <h2>{heading}</h2>
-    </div>
+    <Container maxWidth="sm">
+      <Typography variant="h4" align="center" gutterBottom>
+        Workout Form
+      </Typography>
+      <form>
+        <TextField
+          label="Workout Name"
+          variant="outlined"
+          fullWidth
+          id="workout_name"
+          name="workout name"
+        />
+        <TextField
+          label="Date"
+          variant="outlined"
+          fullWidth
+          id="date"
+          name="date"
+        />
+        <TextField
+          label="Comments"
+          variant="outlined"
+          fullWidth
+          multiline
+          rows={4}
+          id="comments"
+          name="comments"
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          fullWidth
+          
+        >
+          Submit
+        </Button>
+      </form>
+    </Container>
   );
 }
 
 export default WorkoutForm;
+
