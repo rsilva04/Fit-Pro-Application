@@ -55,7 +55,7 @@ function FourDayProgram() {
                             className="start-button"
                             onClick={handleStartWorkout}
                         >
-                            Start Workout
+                            Finish Workout
                         </button>
                     </div>
                 )}
