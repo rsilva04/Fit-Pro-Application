@@ -2,6 +2,17 @@ import React from 'react';
 import { Container, TextField, Button, Typography, Grid } from '@mui/material';
 
 function WorkoutForm() {
+  const handleConfirmSubmit = () => {
+    const isConfirmed = window.confirm('Are you sure you want to submit the form?');
+    if (isConfirmed) {
+      // Handle form submission logic here
+      alert('Form submitted!');
+    } else {
+      // User canceled the submission
+      alert('Submission canceled.');
+    }
+  };
+
   return (
     <Container maxWidth="sm">
       <Typography variant="h4" align="center" gutterBottom>
@@ -34,10 +45,11 @@ function WorkoutForm() {
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Button
-              type="submit"
+              type="button" // Changed to 'button' type
               variant="contained"
               color="primary"
               fullWidth
+              onClick={handleConfirmSubmit} // Added onClick handler
             >
               Submit
             </Button>

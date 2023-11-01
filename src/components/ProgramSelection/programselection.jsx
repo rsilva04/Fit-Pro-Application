@@ -85,7 +85,7 @@ export default function ProgramSelection() {
                     color="text.primary"
                     fontSize="20px"
                   >
-                  Discover our 3-Day Push, Pull, Legs Workout Program for a balanced and powerful physique with focused daily workouts.
+                  3-Day
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -115,7 +115,7 @@ export default function ProgramSelection() {
                      color="text.primary"
                      fontSize="20px"
                   >
-                  Revamp your fitness with our 4-Day Ultimate Workout Program, targeting upper, lower, full-body, and core strength for a complete transformation.
+                  4-Day
                   </Typography>
                 </CardContent>
                 <CardActions>
@@ -145,7 +145,7 @@ export default function ProgramSelection() {
                     color="text.primary"
                     fontSize="20px"
                     >
-                  Unleash your potential with our 5-Day Muscle Mastery Program, targeting chest, back, arms, shoulders, and legs for comprehensive muscle development.
+                  5-Day
                   </Typography>
                 </CardContent>
                 <CardActions>
