@@ -11,11 +11,11 @@ function FiveDayProgram() {
     const buttons = ["Chest", "Back", "Arms", "Shoulders", "Legs"];
 
     const exercises = [
-        ["Exercise 1", "Exercise 2", "Exercise 3"],
-        ["Exercise 4", "Exercise 5", "Exercise 6"],
-        ["Exercise 7", "Exercise 8", "Exercise 9"],
-        ["Exercise 10", "Exercise 11", "Exercise 12"],
-        ["Exercise 11", "Exercise 12", "Exercise 13"],
+        ["Dumbbell Chest Press", "Machine Chest Fly", "Assisted Dips"],
+        ["Lat Pull Down", "Seated Row", "Barbell Deadlift"],
+        ["Tricep Extension", "EZ Bar Curls", "Hammer Curls"],
+        ["Shoulder Press", "Front/Side Raises", "Military Press"],
+        ["Leg Press", "Bulgarian Split Squats", "Barbell Squat"],
     ];
 
     const handleButtonClick = (index) => {
@@ -56,7 +56,7 @@ function FiveDayProgram() {
                             className="start-button"
                             onClick={handleStartWorkout}
                         >
-                            Start Workout
+                            Finish Workout
                         </button>
                     </div>
                 )}
