@@ -11,10 +11,10 @@ function FourDayProgram() {
     const buttons = ["Upper", "Lower", "Full Body", "Core"];
 
     const exercises = [
-        ["Exercise 1", "Exercise 2", "Exercise 3"],
-        ["Exercise 4", "Exercise 5", "Exercise 6"],
-        ["Exercise 7", "Exercise 8", "Exercise 9"],
-        ["Exercise 10", "Exercise 11", "Exercise 12"],
+        ["Chest Press", "Push-Ups", "Pull-Ups"],
+        ["Barbell Deadlift", "Squat Press", "Barbell Hip Thrusts"],
+        ["Barbell Deadlift", "Bench Press", "Barbell Squats"],
+        ["Deadbug", "Hanging Leg Raises", "Weighted Plank"],
     ];
 
     const handleButtonClick = (index) => {

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, TextField, Button, Typography } from '@mui/material';
-
+import { Container, TextField, Button, Typography, Grid } from '@mui/material';
 
 function WorkoutForm() {
   return (
@@ -32,19 +31,41 @@ function WorkoutForm() {
           id="comments"
           name="comments"
         />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          fullWidth
-          
-        >
-          Submit
-        </Button>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+            >
+              Submit
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              type="button"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+            >
+              Edit
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button
+              type="button"
+              variant="outlined"
+              color="error"
+              fullWidth
+            >
+              Delete
+            </Button>
+          </Grid>
+        </Grid>
       </form>
     </Container>
   );
 }
 
 export default WorkoutForm;
-
