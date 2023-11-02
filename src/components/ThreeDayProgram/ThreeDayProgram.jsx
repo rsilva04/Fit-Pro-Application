@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './ThreeDayProgram.css';
 import WorkoutForm from '../WorkoutForm/WorkoutForm'
+import { TextField } from '@mui/material';
+
 
 
 function ThreeDayProgram() {
@@ -26,7 +28,7 @@ function ThreeDayProgram() {
 
     const handleStartWorkout = () => {
         setWorkoutStarted(true);
-        history.push('/workoutform');
+        history.push('/myworkouts');
     };
 
     return (
@@ -53,6 +55,15 @@ function ThreeDayProgram() {
                                 <li key={index}>{exercise}</li>
                             ))}
                         </ul>
+                        <TextField
+                            label="Comments"
+                            variant="outlined"
+                            fullWidth
+                            multiline
+                            rows={4}
+                            id="comments"
+                            name="comments"
+                        />
                         <button
                             className="start-button"
                             onClick={handleStartWorkout}
@@ -64,7 +75,7 @@ function ThreeDayProgram() {
                 {isWorkoutStarted && (
                     <div className="workout-in-progress">
                         <p>{WorkoutForm}</p>
-            
+
                     </div>
                 )}
             </div>

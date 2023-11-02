@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, TextField, Button, Typography, Grid } from '@mui/material';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -9,7 +10,8 @@ function MyWorkouts() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p>Completed Workouts</p>
+    
       </div>
     </div>
   );
