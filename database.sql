@@ -20,5 +20,6 @@ CREATE TABLE "programs" (
 CREATE TABLE "comments" (
     "id" SERIAL PRIMARY KEY,
     "comments" VARCHAR (1000),
+    "user_id" VARCHAR (80)
 );
 
