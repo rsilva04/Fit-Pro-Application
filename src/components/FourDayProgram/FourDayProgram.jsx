@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { TextField } from '@mui/material';
+
 
 function FourDayProgram() {
 
@@ -24,7 +26,7 @@ function FourDayProgram() {
 
     const handleStartWorkout = () => {
         setWorkoutStarted(true);
-        history.push('/workoutform');
+        history.push('/myworkouts');
     };
 
     return (
@@ -51,6 +53,15 @@ function FourDayProgram() {
                                 <li key={index}>{exercise}</li>
                             ))}
                         </ul>
+                        <TextField
+                            label="Comments"
+                            variant="outlined"
+                            fullWidth
+                            multiline
+                            rows={4}
+                            id="comments"
+                            name="comments"
+                        />
                         <button
                             className="start-button"
                             onClick={handleStartWorkout}

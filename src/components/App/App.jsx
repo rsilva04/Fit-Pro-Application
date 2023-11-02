@@ -25,6 +25,7 @@ import ThreeDayProgram from '../ThreeDayProgram/ThreeDayProgram';
 import FourDayProgram from '../FourDayProgram/FourDayProgram';
 import FiveDayProgram from '../FiveDayProgram/FiveDayProgram';
 import WorkoutForm from '../WorkoutForm/WorkoutForm'
+import MyWorkouts from '../MyWorkouts/MyWorkouts';
 
 function App() {
   const dispatch = useDispatch();
@@ -52,6 +53,14 @@ function App() {
             <AboutPage />
           </Route>
 
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/myworkouts"
+          >
+            <MyWorkouts />
+          </ProtectedRoute>
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -78,14 +87,6 @@ function App() {
             path="/threedayprogram"
           >
             <ThreeDayProgram />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/workoutform"
-          >
-            <WorkoutForm />
           </ProtectedRoute>
 
           <ProtectedRoute
