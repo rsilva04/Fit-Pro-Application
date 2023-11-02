@@ -24,7 +24,6 @@ import './App.css';
 import ThreeDayProgram from '../ThreeDayProgram/ThreeDayProgram';
 import FourDayProgram from '../FourDayProgram/FourDayProgram';
 import FiveDayProgram from '../FiveDayProgram/FiveDayProgram';
-import WorkoutForm from '../WorkoutForm/WorkoutForm'
 import MyWorkouts from '../MyWorkouts/MyWorkouts';
 
 function App() {

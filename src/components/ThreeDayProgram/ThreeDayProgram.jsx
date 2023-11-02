@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './ThreeDayProgram.css';
-import WorkoutForm from '../WorkoutForm/WorkoutForm'
 import { TextField } from '@mui/material';
 
 
@@ -74,7 +73,7 @@ function ThreeDayProgram() {
                 )}
                 {isWorkoutStarted && (
                     <div className="workout-in-progress">
-                        <p>{WorkoutForm}</p>
+                        <p>{}</p>
 
                     </div>
                 )}
