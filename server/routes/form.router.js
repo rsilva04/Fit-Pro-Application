@@ -26,14 +26,29 @@ router.post('/', (req, res) => {
     const comments = req.body.comments;
     const user_id = req.body.user
   console.log('hello', comments, user_id, req.body);
-    const queryText = `INSERT INTO "comments" ("comments", "user_id") VALUES ($1, $2) RETURNING id;`;
+    const queryText = `INSERT INTO "comments" ("comments", "user_id", "workout_type") VALUES ($1, $2, $3) RETURNING id;`;
     pool
-      .query(queryText, [comments, user_id])
+      .query(queryText, [comments, user_id, req.body.workout_type])
       .then(() => res.sendStatus(201))
       .catch((err) => {
         console.log(`Error adding comment ${queryText}`, err);
         res.sendStatus(500);
       });
+});
+
+
+router.delete('/:id', (req, res) => {
+    let { id } = req.params;
+    const queryText = 'DELETE FROM "comments" WHERE "id" = $1;';
+    pool.query(queryText, [id])
+    .then((response) => {
+        console.log('Successfully Deleted Comment', response);
+        res.sendStatus(201);
+    })
+    .catch((error) => {
+        console.log('Could not delete', error);
+        res.sendStatus(500);
+    })
 });
 
 module.exports = router;

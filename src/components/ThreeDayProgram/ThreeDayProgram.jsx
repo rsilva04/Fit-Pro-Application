@@ -14,7 +14,6 @@ function ThreeDayProgram() {
     const [commentSubmit, setCommentSubmit] = useState('')
 
     const user_id = useSelector(store => store.user.id);
-    console.log(user_id);
 
     const history = useHistory();
     const buttons = ["Push", "Pull", "Legs"];
@@ -39,12 +38,12 @@ function ThreeDayProgram() {
 
         const comments = {
             comments: commentSubmit,
-            user: user_id
+            user: user_id,
+            workout_type: `Day ${selectedButton+1} - ${buttons[selectedButton]}: ${exercises[selectedButton].join(', ')}`
         }
-
+console.log(comments);
         axios.post('/api/form', comments)
           .then((response) => {
-            console.log(response.data);
             handleStartWorkout();
           })
           .catch((error) => {
