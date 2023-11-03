@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import './ThreeDayProgram.css';
 import { TextField } from '@mui/material';
@@ -9,6 +10,7 @@ function ThreeDayProgram() {
 
     const [selectedButton, setSelectedButton] = useState(null);
     const [isWorkoutStarted, setWorkoutStarted] = useState(false);
+    const [commentSubmit, setCommentSubmit] = useState('')
 
 
     const history = useHistory();
@@ -29,6 +31,18 @@ function ThreeDayProgram() {
         setWorkoutStarted(true);
         history.push('/myworkouts');
     };
+
+    const addComments = (event) => {
+        
+        axios.post('/api/form', commentSubmit)
+          .then((response) => {
+            console.log(response.data);
+            return handleStartWorkout;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
 
     return (
         <div className="exercise-page">
@@ -62,10 +76,12 @@ function ThreeDayProgram() {
                             rows={4}
                             id="comments"
                             name="comments"
-                        />
+                            // onChange={(event) => console.log(('name changed!', event.target.value))} placeholder="Name"/>
+                             onChange={(event) => setCommentSubmit((event.target.value))} placeholder="Name"/>
+                
                         <button
                             className="start-button"
-                            onClick={handleStartWorkout}
+                            onClick={addComments}
                         >
                             Finish Workout
                         </button>

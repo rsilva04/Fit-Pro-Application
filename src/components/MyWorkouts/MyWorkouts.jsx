@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, TextField, Button, Typography, Grid } from '@mui/material';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -7,6 +6,9 @@ import { Container, TextField, Button, Typography, Grid } from '@mui/material';
 // or even care what the redux state is'
 
 function MyWorkouts() {
+
+  
+
   return (
     <div className="container">
       <div>
