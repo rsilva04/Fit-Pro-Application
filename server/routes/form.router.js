@@ -15,8 +15,8 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
     const comments = req.body.comments;
-    const user_id = req.body.user_id
-  console.log('hello', comments, user_id);
+    const user_id = req.body.user
+  console.log('hello', comments, user_id, req.body);
     const queryText = `INSERT INTO "comments" ("comments", "user_id") VALUES ($1, $2) RETURNING id;`;
     pool
       .query(queryText, [comments, user_id])
