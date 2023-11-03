@@ -9,14 +9,14 @@ import axios from 'axios';
 
 function MyWorkouts() {
 
-  const [ commentsList, setCommentsList ] = useState('')
+  const [ commentsList, setCommentsList ] = useState([])
 
   const fetchComments = () => {
-    axios.get('/form')
+    axios.get('/api/form/')
     .then((response) => {
       console.log(response);
       console.log(response.data);
-      setCommentsList(response.data)
+      setCommentsList(response.data);
     })
     .catch((error) => {
       console.log(error);
@@ -28,11 +28,13 @@ function MyWorkouts() {
   }, []);
 
   return (
-    <div className="container">
-      <div>
-        <p>Completed Workouts</p>
-    
-      </div>
+    <div>
+      <h1>My Workouts</h1>
+      <ul>
+        {commentsList.map((comments, index) => (
+          <li key={index}>{comments.comments}</li>
+        ))}
+      </ul>
     </div>
   );
 }

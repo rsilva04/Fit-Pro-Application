@@ -6,8 +6,17 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    
-  // GET route code here
+    console.log("GET resquest");
+    const queryText = `SELECT * FROM comments ORDER BY id, id ASC;`;
+    pool.query(queryText)
+    .then((result) => {
+        console.log(`GET working`, result);
+        res.send(result.rows);
+    })
+    .catch((error) => {
+        console.log(`Error making database query ${queryText}`, error);
+        res.sendStatus(500);
+    })
 });
 
 /**
