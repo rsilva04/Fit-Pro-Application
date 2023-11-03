@@ -22,7 +22,16 @@ function MyWorkouts() {
       console.log(error);
     })
   }
-
+  const deleteActivity = (id) => {
+    axios.delete(`/api/form/${id}`)
+      .then((response) => {
+        console.log(response)
+        fetchComments();
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
   useEffect(() => {
     fetchComments();
   }, []);
@@ -30,11 +39,18 @@ function MyWorkouts() {
   return (
     <div>
       <h1>My Workouts</h1>
-      <ul>
+      <div>
         {commentsList.map((comments, index) => (
-          <li key={index}>{comments.comments}</li>
+          <div key={index}>
+            <h3>{comments.workout_type}</h3>
+            <p>{new Date(comments.completed_at).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})}</p>
+            {comments.comments}
+            <button onClick={()=> deleteActivity(comments.id)}>Delete</button>
+          </div>
+          
+          
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
