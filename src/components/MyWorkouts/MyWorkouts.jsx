@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, TextField, Button, Typography, Grid } from '@mui/material';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -7,6 +8,25 @@ import { Container, TextField, Button, Typography, Grid } from '@mui/material';
 // or even care what the redux state is'
 
 function MyWorkouts() {
+
+  const [ commentsList, setCommentsList ] = useState('')
+
+  const fetchComments = () => {
+    axios.get('/form')
+    .then((response) => {
+      console.log(response);
+      console.log(response.data);
+      setCommentsList(response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+  useEffect(() => {
+    fetchComments();
+  }, []);
+
   return (
     <div className="container">
       <div>

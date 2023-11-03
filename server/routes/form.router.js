@@ -13,16 +13,16 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/comments', (req, res,) => {
+router.post('/', (req, res) => {
     const comments = req.body.comments;
-  
-    const queryText = `INSERT INTO "comments"
-      VALUES ($1, $2) RETURNING id`;
+    const user_id = req.body.user
+  console.log('hello', comments, user_id, req.body);
+    const queryText = `INSERT INTO "comments" ("comments", "user_id") VALUES ($1, $2) RETURNING id;`;
     pool
-      .query(queryText, [comments])
+      .query(queryText, [comments, user_id])
       .then(() => res.sendStatus(201))
       .catch((err) => {
-        console.log('Comments not able to send', err);
+        console.log(`Error adding comment ${queryText}`, err);
         res.sendStatus(500);
       });
 });
