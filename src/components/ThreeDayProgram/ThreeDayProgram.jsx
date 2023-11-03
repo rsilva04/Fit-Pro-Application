@@ -39,17 +39,17 @@ function ThreeDayProgram() {
         const comments = {
             comments: commentSubmit,
             user: user_id,
-            workout_type: `Day ${selectedButton+1} - ${buttons[selectedButton]}: ${exercises[selectedButton].join(', ')}`
+            workout_type: `Day ${selectedButton + 1} - ${buttons[selectedButton]}: ${exercises[selectedButton].join(', ')}`
         }
-console.log(comments);
+        console.log(comments);
         axios.post('/api/form', comments)
-          .then((response) => {
-            handleStartWorkout();
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
+            .then((response) => {
+                handleStartWorkout();
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
     return (
         <div className="exercise-page">
@@ -83,8 +83,8 @@ console.log(comments);
                             rows={4}
                             id="comments"
                             name="comments"
-                            onChange={(event) => setCommentSubmit((event.target.value))} placeholder="Comment"/>
-                
+                            onChange={(event) => setCommentSubmit((event.target.value))} placeholder="Comment" />
+
                         <button
                             className="start-button"
                             onClick={addComments}
@@ -95,7 +95,7 @@ console.log(comments);
                 )}
                 {isWorkoutStarted && (
                     <div className="workout-in-progress">
-                        <p>{}</p>
+                        <p>{ }</p>
 
                     </div>
                 )}
