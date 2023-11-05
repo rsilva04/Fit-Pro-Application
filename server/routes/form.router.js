@@ -51,4 +51,25 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+router.put('/complete/:id', (req, res) => {
+    let { id } = req.params;
+    let { complete } = req.body; // Assuming you want to update the 'complete' field
+
+    // The SQL query should update the 'complete' field of a comment with a specific 'id'
+    const sqlText = `UPDATE "comments" SET "complete" = $1 WHERE "id" = $2;`;
+
+    pool.query(sqlText, [complete, id])
+        .then((result) => {
+            console.log(`Updated comments in the database`, result);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making query ${sqlText}`, error);
+            res.sendStatus(500);
+        });
+});
+
+module.exports = router;
+
+
 module.exports = router;
