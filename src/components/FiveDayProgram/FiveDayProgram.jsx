@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { TextField } from '@mui/material';
+import { useSelector } from 'react-redux';
 
 
 function FiveDayProgram() {
 
     const [selectedButton, setSelectedButton] = useState(null);
     const [isWorkoutStarted, setWorkoutStarted] = useState(false);
+    const [commentSubmit, setCommentSubmit] = useState('')
 
+    const user_id = useSelector(store => store.user.id);
 
     const history = useHistory();
     const buttons = ["Chest", "Back", "Arms", "Shoulders", "Legs"];
@@ -29,6 +33,23 @@ function FiveDayProgram() {
         setWorkoutStarted(true);
         history.push('/myworkouts');
     };
+
+    const addComments = (event) => {
+
+        const comments = {
+            comments: commentSubmit,
+            user: user_id,
+            workout_type: `Day ${selectedButton+1} - ${buttons[selectedButton]}: ${exercises[selectedButton].join(', ')}`
+        }
+console.log(comments);
+        axios.post('/api/form', comments)
+          .then((response) => {
+            handleStartWorkout();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
 
     return (
         <div className="exercise-page">
@@ -62,10 +83,11 @@ function FiveDayProgram() {
                             rows={4}
                             id="comments"
                             name="comments"
-                        />
+                            onChange={(event) => setCommentSubmit((event.target.value))} placeholder="Comment"/>
+                
                         <button
                             className="start-button"
-                            onClick={handleStartWorkout}
+                            onClick={addComments}
                         >
                             Finish Workout
                         </button>
@@ -73,15 +95,15 @@ function FiveDayProgram() {
                 )}
                 {isWorkoutStarted && (
                     <div className="workout-in-progress">
-                        <p>Workout in progress...</p>
-                        {/* Add workout progress components here */}
+                        <p>{}</p>
+
                     </div>
                 )}
             </div>
-
         </div>
     );
 }
+
 
 
 export default FiveDayProgram;
