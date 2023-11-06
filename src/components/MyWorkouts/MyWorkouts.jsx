@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 
+import CommentEditor from '../CommentEditor/CommentEditor';
 const theme = createTheme();
 
 const MyWorkoutsContainer = styled('div')({
@@ -52,6 +53,8 @@ const useStyles = styled((theme) => ({
 function MyWorkouts() {
   const classes = useStyles();
   const [commentsList, setCommentsList] = useState([]);
+  const [editingCommentId, setEditingCommentId] = useState(null);
+  const [updatedComment, setUpdatedComment] = useState('');
 
   const fetchComments = () => {
     axios.get('/api/form/')
@@ -63,18 +66,19 @@ function MyWorkouts() {
       });
   }
 
-  const completeActivity = (id) => {
-    axios.put(`/api/form/${id}`)
+  const editWorkout = (id, updatedComment) => {
+    axios.put(`/api/form/${id}`, { comments: updatedComment })
       .then((response) => {
-        console.log(response)
-        fetchList();
+        console.log("PUT working");
+        console.log(response);
+        fetchComments();
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
   }
 
-  const deleteActivity = (id) => {
+  const deleteWorkout = (id) => {
     axios.delete(`/api/form/${id}`)
       .then(() => {
         fetchComments();
@@ -97,31 +101,51 @@ function MyWorkouts() {
         <Grid container spacing={2}>
           {commentsList.map((comments, index) => (
             <Grid item xs={12} key={index}>
-              <Card className={classes.card}>
-                <CardContent>
-                  <Typography variant="h6" className={classes.workoutTitle}>
-                    {comments.workout_type}
-                  </Typography>
-                  <Typography variant="body2" className={classes.workoutDate}>
-                    {new Date(comments.completed_at).toLocaleDateString('en-us', {
-                      weekday: 'long',
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                    })}
-                  </Typography>
-                  <Typography variant="body1" className={classes.workoutComments}>
-                    {comments.comments}
-                  </Typography>
-                  <Button
-                    variant="contained"
-                    className={classes.deleteButton}
-                    onClick={() => deleteActivity(comments.id)}
-                  >
-                    Delete
-                  </Button>
-                </CardContent>
-              </Card>
+              {editingCommentId === comments.id ? (
+                <CommentEditor
+                  initialComment={comments.comments}
+                  onSave={(updatedComment) => {
+                    editWorkout(comments.id, updatedComment);
+                    setEditingCommentId(null); // Exit edit mode
+                  }}
+                />
+              ) : (
+                <Card className={classes.card}>
+                  <CardContent>
+                    <Typography variant="h6" className={classes.workoutTitle}>
+                      {comments.workout_type}
+                    </Typography>
+                    <Typography variant="body2" className={classes.workoutDate}>
+                      {new Date(comments.completed_at).toLocaleDateString('en-us', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
+                    </Typography>
+                    <Typography variant="body1" className={classes.workoutComments}>
+                      {comments.comments}
+                    </Typography>
+                    <Button
+                      variant="contained"
+                      className={classes.deleteButton}
+                      onClick={() => deleteWorkout(comments.id)}
+                    >
+                      Delete
+                    </Button>
+                    <Button
+                      variant="contained"
+                      className={classes.deleteButton}
+                      onClick={() => {
+                        setUpdatedComment(comments.comments);
+                        setEditingCommentId(comments.id); // Enter edit mode
+                      }}
+                    >
+                      Edit
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
             </Grid>
           ))}
         </Grid>
