@@ -2,9 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+//GET route
 router.get('/', (req, res) => {
     console.log("GET resquest");
     const queryText = `SELECT * FROM comments ORDER BY id, id ASC;`;
@@ -19,9 +17,7 @@ router.get('/', (req, res) => {
     })
 });
 
-/**
- * POST route template
- */
+//POST route 
 router.post('/', (req, res) => {
     const comments = req.body.comments;
     const user_id = req.body.user
@@ -36,7 +32,7 @@ router.post('/', (req, res) => {
       });
 });
 
-
+// DELETE route to delete comments
 router.delete('/:id', (req, res) => {
     let { id } = req.params;
     const queryText = 'DELETE FROM "comments" WHERE "id" = $1;';
@@ -51,20 +47,23 @@ router.delete('/:id', (req, res) => {
     })
 });
 
-router.put('/complete/:id', (req, res) => {
-    let { id } = req.params;
-    let { complete } = req.body; // Assuming you want to update the 'complete' field
 
-    // The SQL query should update the 'complete' field of a comment with a specific 'id'
-    const sqlText = `UPDATE "comments" SET "complete" = $1 WHERE "id" = $2;`;
 
-    pool.query(sqlText, [complete, id])
-        .then((result) => {
-            console.log(`Updated comments in the database`, result);
-            res.sendStatus(201);
+// PUT route to edit comments
+router.put('/:id', (req, res) => {
+    const id = req.params.id; // Comment ID to be updated
+    const newComment = req.body.comments; // New comment text
+
+    const queryText = `UPDATE "comments" SET "comments" = $1 WHERE "id" = $2 AND "user_id" = $3;`;
+    // Ensure that the update only occurs if the comment belongs to the user
+
+    pool.query(queryText, [newComment, id, req.user.id])
+        .then(() => {
+            console.log(`Updated comment with ID ${id}`);
+            res.sendStatus(200);
         })
         .catch((error) => {
-            console.log(`Error making query ${sqlText}`, error);
+            console.error(`Error updating comment: ${error}`);
             res.sendStatus(500);
         });
 });
