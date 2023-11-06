@@ -1,17 +1,34 @@
 import React, { useState } from 'react';
 import { Button, TextareaAutosize } from '@mui/material';
 
+const containerStyle = {
+  padding: '16px',
+};
+
 const textareaStyle = {
   width: '100%',
   minHeight: '100px',
   padding: '8px',
-  border: '1px solid #ccc',
+  border: '1px solid #3f51b5',
   borderRadius: '4px',
-  resize: 'none', // Disable textarea resizing
+  fontSize: '16px',
+  fontFamily: 'Arial, sans-serif',
 };
 
 const buttonStyle = {
-  marginTop: '8px',
+  marginTop: '16px',
+  backgroundColor: '#3f51b5',
+  color: 'white',
+  border: 'none',
+  borderRadius: '4px',
+  padding: '12px 16px',
+  fontSize: '16px',
+  cursor: 'pointer',
+  transition: 'background-color 0.3s',
+};
+
+const buttonHoverStyle = {
+  backgroundColor: '#303f9f',
 };
 
 function CommentEditor({ initialComment, onSave }) {
@@ -26,19 +43,20 @@ function CommentEditor({ initialComment, onSave }) {
   };
 
   return (
-    <div>
+    <div style={containerStyle}>
       <TextareaAutosize
-        style={textareaStyle}
         rowsMin={4}
         value={updatedComment}
         onChange={handleCommentChange}
         placeholder="Edit your comment..."
+        style={textareaStyle}
       />
       <Button
         variant="contained"
         color="primary"
-        style={buttonStyle}
         onClick={handleSave}
+        style={buttonStyle}
+        sx={buttonHoverStyle}
       >
         Save
       </Button>
@@ -47,3 +65,4 @@ function CommentEditor({ initialComment, onSave }) {
 }
 
 export default CommentEditor;
+
