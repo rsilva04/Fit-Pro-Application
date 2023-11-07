@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { TextField, Button, Card, CardContent, Typography } from '@mui/material';
+import { TextField, Button, Card, CardContent, Typography, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 const FiveDayProgram = () => {
@@ -12,7 +12,7 @@ const FiveDayProgram = () => {
   const user_id = useSelector((store) => store.user.id);
 
   const history = useHistory();
-  const buttons = ["Chest", "Back", "Arms", "Shoulders", "Legs"];
+  const buttons = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"];
 
   const exercises = [
     ["Dumbbell Chest Press", "Machine Chest Fly", "Assisted Dips"],
@@ -50,56 +50,65 @@ const FiveDayProgram = () => {
   };
 
   return (
-    <div className="exercise-page">
-      <div className="header">
+    <Grid container spacing={2} justifyContent="center" alignItems="center">
+    <Grid item xs={12}>
         <Typography variant="h3" align="center" gutterBottom sx={{ color: '#000000', fontWeight: 'bold' }}>
-          5-Day Program
+            5-Day Program
         </Typography>
-      </div>
-      <div className="button-container">
-        {buttons.map((button, index) => (
-          <Button
-            key={index}
-            variant="contained"
-            className={`exercise-button ${selectedButton === index ? "active" : ""}`}
-            onClick={() => handleButtonClick(index)}
-          >
-            {button}
-          </Button>
-        ))}
-      </div>
-      <div className="exercise-list-container">
+    </Grid>
+    <Grid item xs={12}>
+        <Grid container justifyContent="center" spacing={2}>
+            {buttons.map((button, index) => (
+                <Grid item key={index}>
+                    <Button
+                        variant="contained"
+                        className={`exercise-button ${selectedButton === index ? "active" : ""}`}
+                        onClick={() => handleButtonClick(index)}
+                    >
+                        {button}
+                    </Button>
+                </Grid>
+            ))}
+        </Grid>
+    </Grid>
+    <Grid item xs={12} justifyContent="center" align="center">
         {selectedButton !== null && !isWorkoutStarted && (
-          <div>
-            <ul className="exercise-list">
-              {exercises[selectedButton].map((exercise, index) => (
-                <li key={index}>{exercise}</li>
-              ))}
-            </ul>
-            <TextField
-              label="Comments"
-              variant="outlined"
-              fullWidth
-              multiline
-              rows={4}
-              id="comments"
-              name="comments"
-              onChange={(event) => setCommentSubmit(event.target.value)}
-              placeholder="Comment"
-            />
-            <Button variant="contained" color="primary" onClick={addComments}>
-              Finish Workout
-            </Button>
-          </div>
+            <Grid container spacing={2} justifyContent="center" align="center">
+                <Grid item xs={12}>
+                    <ul className="exercise-list" style={{ padding: '10px' }}>
+                        {exercises[selectedButton].map((exercise, index) => (
+                            <li key={index}>{exercise}</li>
+                        ))}
+                    </ul>
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        label="How was your workout?"
+                        variant="outlined"
+                        fullWidth
+                        multiline
+                        rows={2}
+                        onChange={(event) => setCommentSubmit(event.target.value)}
+                        placeholder="How was your workout?"
+                        sx={{ marginTop: '20px', padding: '10px', width: '50%' }} // Set the width to 50%
+                    />
+
+                </Grid>
+                <Grid item xs={12} style={{ textAlign: 'center' }}>
+                    <Button variant="contained" color="primary" onClick={addComments}>
+                        Finish Workout
+                    </Button>
+                </Grid>
+            </Grid>
         )}
         {isWorkoutStarted && (
-          <div className="workout-in-progress">
-            <p>{}</p>
-          </div>
+            <div className="workout-in-progress">
+                <p>{ }</p>
+            </div>
         )}
-      </div>
-    </div>
-  );
+    </Grid>
+</Grid>
+);
 };
 
 export default FiveDayProgram;
