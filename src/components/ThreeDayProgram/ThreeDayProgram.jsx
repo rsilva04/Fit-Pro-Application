@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { TextField, Button, Card, CardContent, Typography, Grid } from '@mui/material';
+import { TextField, Button, Typography, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 import './ThreeDayProgram.css';
 
@@ -16,9 +16,9 @@ const ThreeDayProgram = () => {
     const buttons = ["Day 1: Push", "Day 2: Pull", "Day 3: Legs"];
 
     const exercises = [
-        ["Dumbbell Chest Press 3x10", "Shoulder Press", "Tricep Extension"],
-        ["Barbell Deadlift", "Assisted Pull-Ups", "T-Bar Row"],
-        ["Goblet Squats", "Dumbbell Lunges", "Dumbbell Front Squats"],
+        ["Dumbbell Chest Press 3x10", "Shoulder Press 3x10", "Tricep Extension 3x10"],
+        ["Barbell Deadlift 3x10", "Assisted Pull-Ups 3x10", "T-Bar Row 3x10"],
+        ["Goblet Squats 3x10", "Dumbbell Lunges", "Dumbbell Front Squats"],
     ];
 
     const handleButtonClick = (index) => {

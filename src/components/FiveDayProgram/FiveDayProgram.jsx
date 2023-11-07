@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { TextField, Button, Card, CardContent, Typography, Grid } from '@mui/material';
+import { TextField, Button, Typography, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 const FiveDayProgram = () => {
@@ -12,7 +12,7 @@ const FiveDayProgram = () => {
   const user_id = useSelector((store) => store.user.id);
 
   const history = useHistory();
-  const buttons = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5"];
+  const buttons = ["Day 1: Chest", "Day 2: Back", "Day 3: Arms", "Day 4: Shoulders", "Day 5: Legs"];
 
   const exercises = [
     ["Dumbbell Chest Press", "Machine Chest Fly", "Assisted Dips"],
