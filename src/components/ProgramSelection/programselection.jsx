@@ -66,7 +66,7 @@ export default function ProgramSelection() {
             sx={{ color: '#000000' }}
           >
             Join the FitPro team for our fun and dynamic workout programs! Try a
-            combination of our 3, 4, and 5-day programs that best fit your
+            combination of our workout programs that best fit your
             fitness needs.
           </Typography>
         </Container>
