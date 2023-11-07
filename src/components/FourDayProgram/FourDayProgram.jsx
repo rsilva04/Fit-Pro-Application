@@ -15,10 +15,10 @@ const FourDayProgram = () => {
   const buttons = ["Day 1: Upper", "Day 2: Lower", "Day 3: Full-Body", "Day 4: Core"];
 
   const exercises = [
-    ["Chest Press", "Push-Ups", "Pull-Ups"],
-    ["Barbell Deadlift", "Squat Press", "Barbell Hip Thrusts"],
-    ["Barbell Deadlift", "Bench Press", "Barbell Squats"],
-    ["Deadbug", "Hanging Leg Raises", "Weighted Plank"],
+    ["Chest Press 4x8", "Push-Ups 4x8", "Pull-Ups 4x8", "T-Bar Row 4x8", "Lat-Pull Down 4x8"],
+    ["Barbell Deadlift 4x8", "Squat Press 4x8", "Barbell Hip Thrusts 4x8", "Glute Kick Backs 4x8", "Leg Extension 4x8"],
+    ["Barbell Deadlift 4x8", "Bench Press 4x8", "Barbell Squats 4x8", "Barbell Shoulder Press 4x8", "Body Weight Pull-ups 4x8"],
+    ["Ab Crunch Machine 4x8 ", "Hanging Leg Raises 4x8", "Turkish Get-Up 4x8", "Ab Rollout 4x8", "Suitcase Carry 4x8"],
   ];
 
   const handleButtonClick = (index) => {
