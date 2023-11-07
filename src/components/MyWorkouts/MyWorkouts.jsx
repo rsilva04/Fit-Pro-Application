@@ -21,8 +21,9 @@ const MyWorkoutsContainer = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  paddingTop: theme.spacing(4),
+  padding: theme.spacing(6), // Increased padding
 });
+
 
 const useStyles = styled((theme) => ({
   card: {
@@ -48,7 +49,16 @@ const useStyles = styled((theme) => ({
       backgroundColor: theme.palette.error.dark,
     },
   },
+  editButton: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white,
+    margin: theme.spacing(1), // Add margin to create spacing
+    '&:hover': {
+      backgroundColor: theme.palette.primary.dark,
+    },
+  },
 }));
+
 
 function MyWorkouts() {
   const classes = useStyles();
