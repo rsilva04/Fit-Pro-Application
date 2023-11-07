@@ -15,11 +15,11 @@ const FiveDayProgram = () => {
   const buttons = ["Day 1: Chest", "Day 2: Back", "Day 3: Arms", "Day 4: Shoulders", "Day 5: Legs"];
 
   const exercises = [
-    ["Dumbbell Chest Press", "Machine Chest Fly", "Assisted Dips"],
-    ["Lat Pull Down", "Seated Row", "Barbell Deadlift"],
-    ["Tricep Extension", "EZ Bar Curls", "Hammer Curls"],
-    ["Shoulder Press", "Front/Side Raises", "Military Press"],
-    ["Leg Press", "Bulgarian Split Squats", "Barbell Squat"],
+    ["Dumbbell Chest Press 3x12", "Machine Chest Fly 3x12", "Assisted Dips 3x12", "Cable Crossover 3x12", "Dumbbell Incline Chest Press 3x12"],
+    ["Lat Pull Down 3x12", "Seated Row 3x12", "Barbell Deadlift 3x12", "Dumbbell Reverse Fly 3x12", "Barbell Good-mornings 3x12", "Face Pull 3x12"],
+    ["Tricep Extension 3x12", "EZ Bar Curls 3x12", "Hammer Curls 3x12", "Lateral Raise 3x12", "Tricep Pushdown 3x12", "Cable Rows 3x12"],
+    [" Dumbbell Shoulder Press 3x12", "Front/Side Raises 3x12", "Arnold Press 3x12", "Barbell Shrugs 3x12", "Z-Press 3x12", "Push Press 3x12"],
+    ["Leg Press 3x12", "Bulgarian Split Squats 3x12", "Barbell Squat 3x12"],
   ];
 
   const handleButtonClick = (index) => {
