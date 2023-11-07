@@ -11,9 +11,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useHistory } from 'react-router-dom';
 
 const theme = createTheme({
+  typography: {
+    fontFamily: 'Montserrat, sans-serif',
+  },
   palette: {
     primary: {
-      main: '#000000', // desired color
+      main: '#000000', //color 
     },
   },
 });
@@ -22,19 +25,19 @@ const programCards = [
   {
     title: '3-Day Program',
     description: 'A three-day workout program consisting of a Push, Pull, and Legs split.',
-    image: 'https://wodprep.com/wp-content/uploads/2023/02/crossfit-athlete-doing-exercise-with-a-barbell-2022-02-02-03-57-07-utc-1-scaled-e1677238980140.jpg', // Replace with your image URL
+    image: 'https://wodprep.com/wp-content/uploads/2023/02/crossfit-athlete-doing-exercise-with-a-barbell-2022-02-02-03-57-07-utc-1-scaled-e1677238980140.jpg', 
     route: '/threedayprogram',
   },
   {
     title: '4-Day Program',
     description: 'A four-day workout program consisting of Upper, Lower, Core, and Full-Body workouts.',
-    image: 'https://www.bodybuilding.com/images/2016/july/5-crossfit-workouts-you-can-do-anywhere-header-v2-960x540.jpg', // Replace with your image URL
+    image: 'https://www.bodybuilding.com/images/2016/july/5-crossfit-workouts-you-can-do-anywhere-header-v2-960x540.jpg', 
     route: '/fourdayprogram',
   },
   {
     title: '5-Day Program',
     description: 'A five-day workout program consisting of Chest, Back, Arms, Shoulders, and Leg workouts.',
-    image: 'https://mirafit.co.uk/wp/wp-content/uploads/2022/11/tricep-pushdown-with-Mirafit-Cable-Machine-1-1024x683.jpg', // Replace with your image URL
+    image: 'https://mirafit.co.uk/wp/wp-content/uploads/2022/11/tricep-pushdown-with-Mirafit-Cable-Machine-1-1024x683.jpg',
     route: '/fivedayprogram',
   },
 ];
