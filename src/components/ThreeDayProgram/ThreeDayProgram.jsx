@@ -16,9 +16,9 @@ const ThreeDayProgram = () => {
     const buttons = ["Day 1: Push", "Day 2: Pull", "Day 3: Legs"];
 
     const exercises = [
-        ["Dumbbell Chest Press 3x10", "Shoulder Press 3x10", "Tricep Extension 3x10"],
-        ["Barbell Deadlift 3x10", "Assisted Pull-Ups 3x10", "T-Bar Row 3x10"],
-        ["Goblet Squats 3x10", "Dumbbell Lunges", "Dumbbell Front Squats"],
+        ["Dumbbell Chest Press 3x10", "Shoulder Press 3x10", "Tricep Extension 3x10", "Assisted Dips 3x10", "EZ Bar Skull Crushers 3x10", "Machine Chest Fly 3x10"],
+        ["Barbell Deadlift 3x10", "Assisted Pull-Ups 3x10", "T-Bar Row 3x10", "Bicep Curls 3x10", "Dumbbell Pullover 3x10", "Seated Cable Rows 3x10"],
+        ["Goblet Squats 3x10", "Dumbbell Lunges 3x10", "Barbell Squats 3x10", "Bulgarian Split Squats 3x10", "Calf Raises 3x10", "Seated Leg Curl 3x10"],
     ];
 
     const handleButtonClick = (index) => {
