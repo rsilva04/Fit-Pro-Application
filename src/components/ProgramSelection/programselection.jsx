@@ -53,17 +53,21 @@ export default function ProgramSelection() {
     <ThemeProvider theme={theme}>
       <main>
         <Container maxWidth="md">
-          <Typography
-            variant="h4"
-            align="center"
-            gutterBottom
-            sx={{ color: '#000000', fontWeight: 'bold' }}
-          >
-            Work out your body without stressing out your mind.
-            <br />
-            Zero-thought workouts at your fingertips.
-          </Typography>
-         
+        <Typography
+  variant="h4"
+  align="center"
+  gutterBottom
+  sx={{
+    color: '#000000',
+    fontWeight: 'bold',
+    whiteSpace: 'nowrap',
+  }}
+>
+  Work out your body without stressing out your mind. 
+  <br />
+  Zero-thought workouts at your fingertips.
+</Typography>
+
       
 
           <Typography

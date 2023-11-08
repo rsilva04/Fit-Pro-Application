@@ -1,14 +1,27 @@
 import React from 'react';
 
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
-
 function InfoPage() {
+  const listItems = [
+    'REACT.JS',
+    'NODE.JS',
+    'Express',
+    'MATERIAL UI',
+    'CSS',
+    'REDUX',
+    'PASSPORT',
+    'POSTGRESSQL',
+  ];
+
   return (
-    <div className="container">
-      <p>Info Page</p>
+    <div className="container" style={{ textAlign: 'center' }}>
+      <p style={{ margin: '0', padding: '0', fontSize: '40px' }}>Technologies:</p>
+      <div>
+        {listItems.map((item, index) => (
+          <p key={index} style={{ margin: '10px 0', padding: '0', fontSize: '30px' }}>
+            {item}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
