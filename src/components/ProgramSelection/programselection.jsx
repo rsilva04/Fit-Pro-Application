@@ -16,7 +16,7 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#000000', //color 
+      main: '#000000',
     },
   },
 });
@@ -25,13 +25,13 @@ const programCards = [
   {
     title: '3-Day Program',
     description: 'A three-day workout program consisting of a Push, Pull, and Legs split.',
-    image: 'https://wodprep.com/wp-content/uploads/2023/02/crossfit-athlete-doing-exercise-with-a-barbell-2022-02-02-03-57-07-utc-1-scaled-e1677238980140.jpg', 
+    image: 'https://wodprep.com/wp-content/uploads/2023/02/crossfit-athlete-doing-exercise-with-a-barbell-2022-02-02-03-57-07-utc-1-scaled-e1677238980140.jpg',
     route: '/threedayprogram',
   },
   {
     title: '4-Day Program',
     description: 'A four-day workout program consisting of Upper, Lower, Core, and Full-Body workouts.',
-    image: 'https://www.bodybuilding.com/images/2016/july/5-crossfit-workouts-you-can-do-anywhere-header-v2-960x540.jpg', 
+    image: 'https://www.bodybuilding.com/images/2016/july/5-crossfit-workouts-you-can-do-anywhere-header-v2-960x540.jpg',
     route: '/fourdayprogram',
   },
   {
@@ -54,13 +54,17 @@ export default function ProgramSelection() {
       <main>
         <Container maxWidth="md">
           <Typography
-            variant="h3"
+            variant="h4"
             align="center"
             gutterBottom
             sx={{ color: '#000000', fontWeight: 'bold' }}
           >
-            New at FitPro: Try our workout programs on our app and website
+            Workout your body without stressing out your mind.
+            <br />
+            Zero-thought workouts at your fingertips.
           </Typography>
+         
+      
 
           <Typography
             variant="h6"
@@ -68,9 +72,7 @@ export default function ProgramSelection() {
             gutterBottom
             sx={{ color: '#000000' }}
           >
-            Join the FitPro team for our fun and dynamic workout programs! Try a
-            combination of our workout programs that best fit your
-            fitness needs.
+            The one app to give you an instant custom workout.
           </Typography>
         </Container>
         <Container sx={{ py: 8 }} maxWidth="lg">
@@ -106,10 +108,10 @@ export default function ProgramSelection() {
                       size="small"
                       sx={{
                         color: '#FF5722',
-                        borderRadius: '16px', // Add rounded corners to the button
+                        borderRadius: '16px',
                         typography: {
-                          fontFamily: 'Your Font Family', // Change to your desired font family
-                          fontWeight: 'bold', // Change to the desired font weight
+                          fontFamily: 'Your Font Family',
+                          fontWeight: 'bold',
                         },
                       }}
                     >

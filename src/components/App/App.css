@@ -1,9 +1,11 @@
-html,
-body,
-#react-root {
+html, body, #react-root {
   height: 100%;
-  /* background-color:  */
+  background: linear-gradient(135deg, #70A3C9, #FFD587);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

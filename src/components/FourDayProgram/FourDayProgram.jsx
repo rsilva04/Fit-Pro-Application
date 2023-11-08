@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { TextField, Button, Card, CardContent, Typography } from '@mui/material';
+import { TextField, Button, Typography, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 const FourDayProgram = () => {
@@ -12,13 +12,13 @@ const FourDayProgram = () => {
   const user_id = useSelector((store) => store.user.id);
 
   const history = useHistory();
-  const buttons = ["Upper", "Lower", "Full Body", "Core"];
+  const buttons = ["Day 1: Upper", "Day 2: Lower", "Day 3: Full-Body", "Day 4: Core"];
 
   const exercises = [
-    ["Chest Press", "Push-Ups", "Pull-Ups"],
-    ["Barbell Deadlift", "Squat Press", "Barbell Hip Thrusts"],
-    ["Barbell Deadlift", "Bench Press", "Barbell Squats"],
-    ["Deadbug", "Hanging Leg Raises", "Weighted Plank"],
+    ["Chest Press 4x8", "Push-Ups 4x8", "Pull-Ups 4x8", "T-Bar Row 4x8", "Lat-Pull Down 4x8"],
+    ["Barbell Deadlift 4x8", "Squat Press 4x8", "Barbell Hip Thrusts 4x8", "Glute Kick Backs 4x8", "Leg Extension 4x8"],
+    ["Barbell Deadlift 4x8", "Bench Press 4x8", "Barbell Squats 4x8", "Barbell Shoulder Press 4x8", "Body Weight Pull-ups 4x8"],
+    ["Ab Crunch Machine 4x8 ", "Hanging Leg Raises 4x8", "Turkish Get-Up 4x8", "Ab Rollout 4x8", "Suitcase Carry 4x8"],
   ];
 
   const handleButtonClick = (index) => {
@@ -49,56 +49,64 @@ const FourDayProgram = () => {
   };
 
   return (
-    <div className="exercise-page">
-      <div className="header">
-        <Typography variant="h3" align="center" gutterBottom sx={{ color: '#000000', fontWeight: 'bold' }}>
-          4-Day Program
-        </Typography>
-      </div>
-      <div className="button-container">
-        {buttons.map((button, index) => (
-          <Button
-            key={index}
-            variant="contained"
-            className={`exercise-button ${selectedButton === index ? "active" : ""}`}
-            onClick={() => handleButtonClick(index)}
-          >
-            {button}
-          </Button>
-        ))}
-      </div>
-      <div className="exercise-list-container">
-        {selectedButton !== null && !isWorkoutStarted && (
-          <div>
-            <ul className="exercise-list">
-              {exercises[selectedButton].map((exercise, index) => (
-                <li key={index}>{exercise}</li>
-              ))}
-            </ul>
-            <TextField
-              label="Comments"
-              variant="outlined"
-              fullWidth
-              multiline
-              rows={4}
-              id="comments"
-              name="comments"
-              onChange={(event) => setCommentSubmit(event.target.value)}
-              placeholder="Comment"
-            />
-            <Button variant="contained" color="primary" onClick={addComments}>
-              Finish Workout
-            </Button>
-          </div>
-        )}
-        {isWorkoutStarted && (
-          <div className="workout-in-progress">
-            <p>{}</p>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+    <Grid container spacing={2} justifyContent="center" alignItems="center">
+            <Grid item xs={12}>
+                <Typography variant="h3" align="center" gutterBottom sx={{ color: '#000000', fontWeight: 'bold' }}>
+                    4-Day Program
+                </Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid container justifyContent="center" spacing={2}>
+                    {buttons.map((button, index) => (
+                        <Grid item key={index}>
+                            <Button
+                                variant="contained"
+                                className={`exercise-button ${selectedButton === index ? "active" : ""}`}
+                                onClick={() => handleButtonClick(index)}
+                            >
+                                {button}
+                            </Button>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Grid>
+            <Grid item xs={12} justifyContent="center" align="center">
+                {selectedButton !== null && !isWorkoutStarted && (
+                    <Grid container spacing={2} justifyContent="center" align="center">
+                        <Grid item xs={12}>
+                            <ul className="exercise-list" style={{ padding: '10px' }}>
+                                {exercises[selectedButton].map((exercise, index) => (
+                                    <li key={index}>{exercise}</li>
+                                ))}
+                            </ul>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                label="What went well? What needs improvement?"
+                                variant="outlined"
+                                fullWidth
+                                multiline
+                                rows={2}
+                                onChange={(event) => setCommentSubmit(event.target.value)}
+                                placeholder="What went well? What needs improvement?"
+                                sx={{ marginTop: '20px', padding: '10px', width: '50%' }} // Set the width to 50%
+                            />
 
+                        </Grid>
+                        <Grid item xs={12} style={{ textAlign: 'center' }}>
+                            <Button variant="contained" color="primary" onClick={addComments}>
+                                Finish Workout
+                            </Button>
+                        </Grid>
+                    </Grid>
+                )}
+                {isWorkoutStarted && (
+                    <div className="workout-in-progress">
+                        <p>{ }</p>
+                    </div>
+                )}
+            </Grid>
+        </Grid>
+    );
+};
 export default FourDayProgram;
