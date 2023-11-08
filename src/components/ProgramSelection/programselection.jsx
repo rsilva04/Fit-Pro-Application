@@ -59,7 +59,7 @@ export default function ProgramSelection() {
             gutterBottom
             sx={{ color: '#000000', fontWeight: 'bold' }}
           >
-            Workout your body without stressing out your mind.
+            Work out your body without stressing out your mind.
             <br />
             Zero-thought workouts at your fingertips.
           </Typography>
