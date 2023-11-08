@@ -82,13 +82,13 @@ const ThreeDayProgram = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                                label="How was your workout?"
+                                label="What went well? What needs improvement?"
                                 variant="outlined"
                                 fullWidth
                                 multiline
                                 rows={2}
                                 onChange={(event) => setCommentSubmit(event.target.value)}
-                                placeholder="How was your workout?"
+                                placeholder="What went well? What needs improvement?"
                                 sx={{ marginTop: '20px', padding: '10px', width: '50%' }} // Set the width to 50%
                             />
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextareaAutosize } from '@mui/material';
 
 const containerStyle = {
-  padding: '16px',
+  padding: '24px', // Increased padding
 };
 
 const textareaStyle = {
@@ -65,4 +65,3 @@ function CommentEditor({ initialComment, onSave }) {
 }
 
 export default CommentEditor;
-

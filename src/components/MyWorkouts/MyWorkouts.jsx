@@ -3,7 +3,6 @@ import axios from 'axios';
 import {
   Typography,
   Box,
-  Button,
   styled,
   Card,
   CardContent,
@@ -11,23 +10,27 @@ import {
   ThemeProvider,
 } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 import CommentEditor from '../CommentEditor/CommentEditor';
+
 const theme = createTheme();
 
 const MyWorkoutsContainer = styled('div')({
-  background: '#f0f0f0',
+  background: 'linear-gradient(135deg, #70A3C9, #FFD587)',
+  color: 'black',
+  overflow: 'hidden',
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  padding: theme.spacing(6), // Increased padding
+  padding: theme.spacing(4),
 });
-
 
 const useStyles = styled((theme) => ({
   card: {
-    background: 'white',
     marginBottom: theme.spacing(2),
   },
   workoutTitle: {
@@ -41,23 +44,15 @@ const useStyles = styled((theme) => ({
   },
   workoutComments: {
     fontSize: 16,
+    fontWeight: 'bold', 
   },
-  deleteButton: {
-    backgroundColor: theme.palette.error.main,
-    color: theme.palette.common.white,
-    '&:hover': {
-      backgroundColor: theme.palette.error.dark,
-    },
-  },
-  editButton: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.common.white,
-    margin: theme.spacing(1), // Add margin to create spacing
-    '&:hover': {
-      backgroundColor: theme.palette.primary.dark,
-    },
+  actionButtons: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: theme.spacing(1),
   },
 }));
+// ...
 
 
 function MyWorkouts() {
@@ -122,37 +117,38 @@ function MyWorkouts() {
               ) : (
                 <Card className={classes.card}>
                   <CardContent>
-                    <Typography variant="h6" className={classes.workoutTitle}>
+                    <div className={classes.workoutTitle}>
                       {comments.workout_type}
-                    </Typography>
-                    <Typography variant="body2" className={classes.workoutDate}>
+                    </div>
+                    <div className={classes.workoutDate}>
                       {new Date(comments.completed_at).toLocaleDateString('en-us', {
                         weekday: 'long',
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric',
                       })}
-                    </Typography>
-                    <Typography variant="body1" className={classes.workoutComments}>
+                    </div>
+                    <div className={classes.workoutComments}>
                       {comments.comments}
-                    </Typography>
-                    <Button
-                      variant="contained"
-                      className={classes.deleteButton}
-                      onClick={() => deleteWorkout(comments.id)}
-                    >
-                      Delete
-                    </Button>
-                    <Button
-                      variant="contained"
-                      className={classes.deleteButton}
-                      onClick={() => {
-                        setUpdatedComment(comments.comments);
-                        setEditingCommentId(comments.id); // Enter edit mode
-                      }}
-                    >
-                      Edit
-                    </Button>
+                    </div>
+                    <div className={classes.actionButtons}>
+                      <IconButton
+                        color="primary"
+                        onClick={() => deleteWorkout(comments.id)}
+                        style={{ color: 'red' }} 
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                      <IconButton
+                        color="primary"
+                        onClick={() => {
+                          setUpdatedComment(comments.comments);
+                          setEditingCommentId(comments.id); // Enter edit mode
+                        }}
+                      >
+                        <EditIcon />
+                      </IconButton>
+                    </div>
                   </CardContent>
                 </Card>
               )}

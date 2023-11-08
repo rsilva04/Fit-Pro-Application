@@ -68,7 +68,7 @@ export default function ProgramSelection() {
             gutterBottom
             sx={{ color: '#000000' }}
           >
-            Join the FitPro team for our fun and dynamic workout programs! Try a
+            Join the Fit Pro team for our fun and dynamic workout programs! Try a
             combination of our workout programs that best fit your
             fitness needs.
           </Typography>
