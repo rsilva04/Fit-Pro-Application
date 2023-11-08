@@ -4,7 +4,7 @@ function InfoPage() {
   const listItems = [
     'REACT.JS',
     'NODE.JS',
-    'Express',
+    'EXPRESS',
     'MATERIAL UI',
     'CSS',
     'REDUX',
