@@ -2,15 +2,15 @@ import React from 'react';
 
 function InfoPage() {
   const listItems = [
-    'JAVASCRIPT',
-    'REACT.JS',
-    'NODE.JS',
-    'EXPRESS',
-    'MATERIAL UI',
+    'JavaScript',
+    'React.js',
+    'Node.js',
+    'Express',
+    'Material UI',
     'CSS',
-    'REDUX',
-    'PASSPORT',
-    'POSTGRESSQL',
+    'Redux',
+    'Passport',
+    'PostgresSQL',
   ];
 
   return (
