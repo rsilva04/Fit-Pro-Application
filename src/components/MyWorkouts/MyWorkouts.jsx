@@ -43,8 +43,8 @@ const useStyles = styled((theme) => ({
     marginBottom: theme.spacing(1),
   },
   workoutComments: {
-    fontSize: 16,
-    fontWeight: 'bold', 
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   actionButtons: {
     display: 'flex',
@@ -52,7 +52,6 @@ const useStyles = styled((theme) => ({
     gap: theme.spacing(1),
   },
 }));
-// ...
 
 
 function MyWorkouts() {
