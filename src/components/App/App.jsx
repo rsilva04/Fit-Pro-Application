@@ -14,7 +14,7 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import programselection from '../programselection/programselection';
+import ProgramSelection from '../programselection/programselection';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
@@ -69,7 +69,7 @@ function App() {
             exact
             path="/user"
           >
-            <programselection />
+            <ProgramSelection />
           </ProtectedRoute>
 
           <ProtectedRoute
